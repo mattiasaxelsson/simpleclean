@@ -695,8 +695,13 @@ pre {
 }
 
 #forum td.icon {
-  padding: 0 0 0 20px;
+  background: url(images/forum-default.png) no-repeat center center;
+  padding: 0 0 0 30px;
 } 
+
+#forum td.icon img {
+  display:none;
+}
 
 #content .tabs a {
   color: #242021;

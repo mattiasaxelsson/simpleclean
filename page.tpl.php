@@ -16,7 +16,7 @@
   <div id="wrap">
 
   <div id="header">
-    <?php if ($header) { ?><?php print $header ?> <?php } ?>	
+    <?php if ($header) { ?><?php print $header ?> <?php } ?>
     <div id="logo">
       <?php if($logo) : ?>
       <a href="<?php print $front_page ?>"><img src="<?php print $logo ?>" alt="Logo" /></a>
@@ -29,31 +29,31 @@
     <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
     
     <div class="clear"></div>
-		
-		<div  id="nav">
-      <?php if (isset($primary_links)) { ?><?php print theme('links', $primary_links, array('class' => 'links', 'id' => 'navlist')) ?><?php } ?>	
-    </div>	
+
+    <div  id="nav">
+      <?php if (isset($primary_links)) { ?><?php print theme('links', $primary_links, array('class' => 'links', 'id' => 'navlist')) ?><?php } ?>
+    </div>
   </div>
-	
+
   <div id="content-wrap"> 
-	
+
     <?php if ($mission) { ?><div id="mission"><?php print $mission ?></div><?php } ?>
     <?php if ($splash) { ?><div id="splash"><?php print $splash ?></div><?php } ?>
-				
-		<div id="content">
-	    <?php if ($title) { ?><h1 class="node-title"><?php print $title ?></h1><?php } ?>
-	      <div class="tabs"><?php print $tabs ?></div>
-	      <?php if ($show_messages) { print $messages; } ?>
-	      <?php print $help ?>
-	      <?php print $content; ?>
-	      <?php print $feed_icons; ?>				
-		</div>
-		
-		<div id="sidebar">
-		
-		<?php
-		  $show_submenu = theme_get_setting('show_submenu');
-		  if ($show_submenu) {
+
+    <div id="content">
+      <?php if ($title) { ?><h1 class="node-title"><?php print $title ?></h1><?php } ?>
+        <div class="tabs"><?php print $tabs ?></div>
+        <?php if ($show_messages) { print $messages; } ?>
+        <?php print $help ?>
+        <?php print $content; ?>
+        <?php print $feed_icons; ?>
+    </div>
+    
+    <div id="sidebar">
+    
+    <?php
+      $show_submenu = theme_get_setting('show_submenu');
+      if ($show_submenu) {
         $tree = menu_tree_page_data('primary-links'); 
           foreach($tree as $key => $mi) {
             if ($mi['link']['in_active_trail'] && $tree[$key]['below']) {    
@@ -68,7 +68,7 @@
       }
     ?>
 
-      <?php if ($right) { ?><?php print $right ?> <?php } ?>				
+      <?php if ($right) { ?><?php print $right ?> <?php } ?>        
     </div>
 
   </div>
@@ -76,18 +76,18 @@
   <div class="clear"></div>
 
   <div id="footer-wrap">
-	
-  <?php if ($footer) { ?><?php print $footer ?> <?php } ?>				
+  
+  <?php if ($footer) { ?><?php print $footer ?> <?php } ?>        
 
   <?php if ($footer_message) { ?><div id="footer-message"><?php print $footer_message ?></div><?php } ?>
-	
+  
     <div id="footer">
     This site is powered by <a href="http://drupal.org/">Drupal</a>. Theme: <a href="http://drupal.org/projects/simpleclean">Simple Clean</a> by <a href="http://drupal.org/user/765764">acke</a> @ <a href="http://www.happiness.se/">happiness</a>.
-    <?php // Feel free to remove credits if you want your site even cleaner ;) /acke ?>		
+    <?php // Feel free to remove credits if you want your site even cleaner ;) /acke ?>    
     </div>
   </div>
-		
-	<div class="clear"></div>
+    
+  <div class="clear"></div>
 
 </div>
 
