@@ -32,12 +32,12 @@ if (is_null(theme_get_setting('show_submenu'))) {  // <-- change this line
 }
 
 function simpleclean_preprocess_page(&$vars){
-	// Remove double meta content-type tag
+  // Remove double meta content-type tag
   $vars['head'] = preg_replace('/<meta http-equiv=\"Content-Type\"[^>]*>/', '', $vars['head']);
 }
 
 function simpleclean_preprocess_comment_wrapper(&$vars) {
-	// Add a "Comments" heading above comments except on forum pages.
+  // Add a "Comments" heading above comments except on forum pages.
   if ($vars['content'] && $vars['node']->type != 'forum') {
     $vars['content'] = '<h2 class="comments">'. t('Comments') .'</h2>'.  $vars['content'];
   }
@@ -76,9 +76,9 @@ function simpleclean_preprocess_search_results(&$variables) {
    
   // set this html to the $variables
   if ($total > 1) {
-  	  $variables['simpleclean_search_totals'] = t('<p>Displaying @start - @end of @total results</p>', array('@start' => $start, '@end' => $end, '@total' => $total));
+      $variables['simpleclean_search_totals'] = '<p>'. t('Displaying @start - @end of @total results', array('@start' => $start, '@end' => $end, '@total' => $total)) .'</p>';
   }
   else {
-  $variables['simpleclean_search_totals'] = t('<p>Displaying @start - @end of @total result</p>', array('@start' => $start, '@end' => $end, '@total' => $total));
+  $variables['simpleclean_search_totals'] = '<p>'. t('Displaying @start - @end of @total result', array('@start' => $start, '@end' => $end, '@total' => $total)) .'</p>';
 }
 }
