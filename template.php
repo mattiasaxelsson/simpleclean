@@ -1,4 +1,5 @@
 <?php
+// $Id$
 
 /*
 * Initialize theme settings

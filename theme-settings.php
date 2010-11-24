@@ -1,5 +1,5 @@
 <?php
-// An example themes/garland/theme-settings.php file.
+// $Id$
 
 /**
 * Implementation of THEMEHOOK_settings() function.
