@@ -4,7 +4,7 @@
 /*
 * Initialize theme settings
 */
-if (is_null(theme_get_setting('show_submenu'))) {  // <-- change this line
+if (is_null(theme_get_setting('simpleclean_show_submenu'))) {  // <-- change this line
   global $theme_key;
 
   /*
@@ -12,7 +12,7 @@ if (is_null(theme_get_setting('show_submenu'))) {  // <-- change this line
    * matches the $defaults in the theme-settings.php file.
    */
   $defaults = array(             // <-- change this array
-    'show_submenu' => 1
+    'simpleclean_show_submenu' => 1
   );
 
   // Get default theme settings.

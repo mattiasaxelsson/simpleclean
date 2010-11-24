@@ -15,17 +15,17 @@ function phptemplate_settings($saved_settings) {
    * matches the $defaults in the template.php file.
    */
   $defaults = array(
-    'show_submenu' => 1,
+    'simpleclean_show_submenu' => 1,
   );
 
   // Merge the saved variables and their default values
   $settings = array_merge($defaults, $saved_settings);
 
   // Create the form widgets using Forms API
-  $form['show_submenu'] = array(
+  $form['simpleclean_show_submenu'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show submenu (subnavigation in right column)'),
-    '#default_value' => $settings['show_submenu'],
+    '#title' => t('Show submenu (primary links subnavigation in right column)'),
+    '#default_value' => $settings['simpleclean_show_submenu'],
   );
 
   // Return the additional form widgets

@@ -55,7 +55,7 @@
     <div id="sidebar">
     
     <?php
-      $show_submenu = theme_get_setting('show_submenu');
+      $show_submenu = theme_get_setting('simpleclean_show_submenu');
       if ($show_submenu) {
         $tree = menu_tree_page_data('primary-links'); 
           foreach($tree as $key => $mi) {
