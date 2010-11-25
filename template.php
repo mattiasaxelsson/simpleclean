@@ -1,9 +1,12 @@
 <?php
 // $Id$
 
-/*
-* Initialize theme settings
-*/
+/**
+ * @file template.php
+ *
+ * Contains theme preprocess functions
+ */
+ 
 if (is_null(theme_get_setting('simpleclean_show_submenu'))) {  // <-- change this line
   global $theme_key;
 
@@ -32,7 +35,7 @@ if (is_null(theme_get_setting('simpleclean_show_submenu'))) {  // <-- change thi
   theme_get_setting('', TRUE);
 }
 
-function simpleclean_preprocess_page(&$vars){
+function simpleclean_preprocess_page(&$vars) {
   // Remove double meta content-type tag
   $vars['head'] = preg_replace('/<meta http-equiv=\"Content-Type\"[^>]*>/', '', $vars['head']);
 }
@@ -62,17 +65,17 @@ function simpleclean_comment_submitted($comment) {
 function simpleclean_preprocess_search_results(&$variables) {
 
   // define the number of results being shown on a page
-  $itemsPerPage = 10;
+  $items_per_page = 10;
 
   // get the current page
-  $currentPage = $_REQUEST['page']+1;
+  $current_page = $_REQUEST['page']+1;
 
   // get the total number of results from the $GLOBALS
   $total = $GLOBALS['pager_total_items'][0];
    
   // perform calculation
-  $start = 10*$currentPage-9;
-  $end = $itemsPerPage * $currentPage;
+  $start = 10*$current_page-9;
+  $end = $items_per_page * $current_page;
   if ($end>$total) $end = $total;
    
   // set this html to the $variables

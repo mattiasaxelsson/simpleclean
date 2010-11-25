@@ -1,7 +1,6 @@
 ; $Id$
-name = "Simple Clean"
-description = "Tableless, two-column, fixed (960px) width theme."
-version = VERSION
+name = Simple Clean
+description = Tableless, two-column, fixed 960px width theme.
 core = 6.x
 engine = phptemplate
 

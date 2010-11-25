@@ -2,6 +2,8 @@
 // $Id$
 
 /**
+* @file theme-settings.php
+* 
 * Implementation of THEMEHOOK_settings() function.
 *
 * @param $saved_settings
@@ -9,6 +11,7 @@
 * @return
 *   array A form array.
 */
+
 function phptemplate_settings($saved_settings) {
   /*
    * The default values for the theme variables. Make sure $defaults exactly
@@ -31,4 +34,3 @@ function phptemplate_settings($saved_settings) {
   // Return the additional form widgets
   return $form;
 }
-?>
