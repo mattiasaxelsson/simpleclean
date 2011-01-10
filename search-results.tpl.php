@@ -2,13 +2,19 @@
 // $Id$ 
 
 /*
- * @file search-results.tpl.php
+ * @file
  * Add number of hits to search results
  *
  */
 ?>
-<?php print $simpleclean_search_totals; ?>
-<dl class="search-results <?php print $type; ?>-results">
-  <?php print $search_results; ?>
-</dl>
-<?php print $pager; 
+<?php if ($search_results) : ?>
+  <h2><?php print t('Search results');?></h2>
+  <ol class="search-results <?php print $type; ?>-results">
+    <?php print $simpleclean_search_totals; ?>
+    <?php print $search_results; ?>
+  </ol>
+  <?php print $pager; ?>
+<?php else : ?>
+  <h2><?php print t('Your search yielded no results');?></h2>
+  <?php print search_help('search#noresults', drupal_help_arg()); ?>
+<?php endif; ?>

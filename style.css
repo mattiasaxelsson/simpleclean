@@ -17,10 +17,21 @@ body {
 
 a {
   color: #39B9EE;
+  -webkit-transition: color 1s ease-in;  
+  -moz-transition: color 1s ease-in;  
+  -o-transition: color 1s ease-in;  
+  transition: color 1s ease-in;  
 }
-
 a:hover {
   color: #808080;
+}
+
+/**
+* Skip link
+*/
+
+#skip-link {
+  display: none;
 }
 
 #wrap {
@@ -29,7 +40,6 @@ a:hover {
 }
 
 #logo {
-  clear: both;
   float: left;
 }
 
@@ -47,17 +57,17 @@ p#slogan {
   margin: 0;
 }
 
-#search, 
-#sidebar .block-search {
+/**
+* Search block
+*/
+
+.block-search {
   float: right;
 }
-
-#search label, 
-#sidebar .block-search label {
+.block-search label {
   display: none;
 }
-
-#search .form-text {
+.block-search .form-text {
   background-color: #EEEEEE;
   border: 0;
   float: right;
@@ -71,8 +81,7 @@ p#slogan {
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 5px 5px;
 }
-
-#search .form-submit {
+.block-search .form-submit {
   background: url(images/search.png) no-repeat right center;
   border: 0;
   cursor: pointer;
@@ -82,38 +91,6 @@ p#slogan {
   position: relative;
   text-indent: -9999px;
   top: 0px;
-}
-
-#sidebar .block-search .form-text {
-  background-color: #EEEEEE;
-  border: 0;
-  font-family: monospace;
-  font-size: 16px;
-  height: 24px;
-  line-height: 24px;
-  margin: 0 0 20px 0;
-  padding: 10px;
-  width: 240px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
-#sidebar .block-search .form-submit {
-  background-color: #808080;
-  border: 0;
-  color: #FFFFFF;	
-  cursor: pointer;
-  font-family: Georgia, "Adobe Garamond Pro", "Apple Garamond", "ITC Garamond", "Times New Roman", Times, serif;
-  font-size: 16px;
-  height: 44px;
-  line-height: 24px;
-  margin: 0 0 30px 0;
-  padding: 5px 20px;
-  text-decoration: none;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px 5px 5px 5px;
 }
 
 #mission {
@@ -144,12 +121,12 @@ h3 {
   padding: 40px 0 40px 0;
 }
 
-#nav #navlist li {
+#nav #main-menu-links li {
   margin: 0 20px 0 0;
   padding: 0;
 }
 
-#nav #navlist li a {
+#nav #main-menu-links li a {
   color: #242021;
   font-size: 18px;
   line-height: 24px;
@@ -158,22 +135,24 @@ h3 {
   text-decoration: none;
 }
 
-#nav #navlist li a:hover {
+#nav #main-menu-links li a:hover {
   background-color: #dddddd;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 5px 5px;
 }
 
-#nav #navlist li a.active, 
-#nav #navlist li.active-trail a {
+#nav #main-menu-links li a.active, 
+#nav #main-menu-links li.active-trail a {
   background-color: #eeeeee;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 5px 5px;
 }
 
-/* SUB MENU */
+/**
+* Sub menu 
+*/
 
 #sidebar .submenu h2.title-subnav {
   border-bottom: 3px solid #dddddd;
@@ -252,23 +231,28 @@ h3 {
   list-style-image: none;
   list-style-type: none;
 }
-	
-/* SIDEBAR */
 
-#sidebar .block-comment ul, 
-#sidebar .block-forum .item-list ul {
+/**
+* Sidebar
+*/
+
+#sidebar .block ul, 
+#sidebar .block .item-list ul {
   padding: 0;
 }
 
-#sidebar .block-comment ul li, 
-#sidebar .block-forum .item-list ul li {
+#sidebar .block ul li, 
+#sidebar .block .item-list ul li {
   list-style-type: none;
   margin: 0 0 10px 0;
 }
 
-#sidebar .block-block, 
-#sidebar .block-user, 
-#sidebar .block-forum {
+#sidebar .block .item-list ul li a {
+  clear: both;
+  display: block;
+}
+
+#sidebar .block {
   background-color: #eeeeee;
   margin-top: 30px;
   padding: 20px;
@@ -277,9 +261,7 @@ h3 {
   border-radius: 5px 5px 5px 5px;
 }
 
-#sidebar .block-block h2, 
-#sidebar .block-user h2, 
-#sidebar .block-forum h2 {
+#sidebar .block h2 {
   margin-top: 0;
 }
 
@@ -287,11 +269,23 @@ h3 {
   text-align: left;
 }
 
+#sidebar table {
+  border-collapse: separate;
+}
+
+#sidebar ul li.leaf {
+  list-style-image: none;
+}
+
+#sidebar ul.menu li {
+  list-style-image: none;
+}
+
 .clear {
   clear:both;
 }
 
-#splash {
+#highlighted {
   width: 960px;
   margin: 16px 0;
 }
@@ -308,12 +302,12 @@ h3 {
   border-radius: 0 0 5px 5px;
 }
 
-#content .picture {
+#content .user-picture {
   margin: 0;
   padding: 0;
 }
 
-#content .picture img {
+#content .user-picture img {
   border: 1px solid #CDCCCC;
   float: right;
   height: 85px;
@@ -336,7 +330,7 @@ h3 {
   border-radius: 5px 5px 5px 5px;
 }
 
-#content .post-footer .picture img {
+#content .post-footer .user-picture img {
   margin: 30px 0 20px 20px;
 }
 
@@ -380,6 +374,10 @@ body.front #content .node {
   margin: 0;
 } 
 
+div.links {
+  margin: 20px 0 0 0;
+}
+
 ul.links {
   clear: both;
 }
@@ -392,7 +390,7 @@ ul.links li {
 #content .content {
   margin: 0 0 10px 0;
 }
-
+/*
 #content ul.links li a {
   background-color: #EEEEEE;
   border: 0;
@@ -407,6 +405,14 @@ ul.links li {
   border-radius: 5px 5px 5px 5px;
 }
 
+#content ul.links li.comment_comments a {
+  background-color: #D9E5D5;
+}
+
+#content ul.links li a:hover {
+  background-color: #DDDDDD;
+}
+*/
 #content #edit-submit, 
 #content #edit-submit-1, 
 #content #edit-preview, 
@@ -421,6 +427,7 @@ ul.links li {
   line-height: 24px;
   font-family: Georgia, "Adobe Garamond Pro", "Apple Garamond", "ITC Garamond", "Times New Roman", Times, serif;
   font-size: 16px;
+  margin: 0 20px 0 0;
   padding: 5px 20px;
   text-decoration: none;
   -moz-border-radius: 5px;
@@ -501,14 +508,6 @@ body.page-user #content #edit-name,
   background-color: #DDDDDD;
 }
 
-#content ul.links li.comment_comments a {
-  background-color: #D9E5D5;
-}
-
-#content ul.links li a:hover {
-  background-color: #DDDDDD;
-}
-
 #content a.feed-icon {
   display: block;
   float: right;
@@ -521,7 +520,9 @@ body.page-user #content #edit-name,
   width: 260px;
 }
 
-/* FOOTER (AND SOME HEADER) */
+/**
+* Footer (and some header)
+*/
 
 #footer-wrap {
   border-top: 3px solid #DDDDDD;
@@ -561,16 +562,14 @@ body.page-user #content #edit-name,
   text-align: right;
 }
 
-#header .block-search {
-  display: none;
-}
-
 #footer-message {
   clear: both;
   margin: 10px 0;
 }
 
-/* FEED & NEW ICONS */
+/**
+* Feed & new icons
+*/
 
 a.feed-icon {
   background-image: url('images/feed.png');
@@ -594,7 +593,13 @@ a.feed-icon {
   width: 47px;
 }
 
-/* PAGER */
+.marker {
+  color: #7FAE79;
+}
+
+/**
+* Pager
+*/
 
 #content ul.pager li {
   margin: 0;
@@ -679,6 +684,10 @@ a.feed-icon {
   padding: 0;
 }
 
+/**
+* Standard html tags
+*/
+
 pre {
   white-space: pre-wrap;
   white-space: -moz-pre-wrap !important;
@@ -688,17 +697,21 @@ pre {
   width: 99%;
 }
 
-/* FORUM */
+blockquote {
+  font-style: italic;
+}
+
+/**
+* Forum
+*/
 
 #forum table {
   width: 610px;
 }
-
 #forum td.icon {
   background: url(images/forum-default.png) no-repeat center center;
   padding: 0 0 0 30px;
 } 
-
 #forum td.icon img {
   display:none;
 }
@@ -710,24 +723,50 @@ pre {
   -webkit-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
-
 #content .tabs ul {
   padding: 10px 0 10px 0;
 }
-
 #content .messages {
-  padding: 10px 20px;
+  margin: 10px 0;
+  padding: 10px 20px 10px 40px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px 5px 5px 5px;
 }
 
-/* ADMIN MENU */
+/**
+* Admin menu
+*/
 
 body #admin-menu {
   font-size: 12px;
 }
-
 body #admin-menu li.admin-menu-icon {
   padding-top: 3px;
+}
+
+/**
+* Tags
+*/
+
+.field-name-field-tags .field-label {
+  display: none;
+}
+.field-name-field-tags .field-item a {
+  background-color: #888888;
+  color: #FFFFFF;
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 1px 20px 1px 15px;
+  text-decoration: none;
+  -moz-border-radius: 5px 20px 20px 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 5px 5px 5px ;
+}
+
+.field-name-field-tags .field-item a:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
 }

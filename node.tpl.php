@@ -2,8 +2,7 @@
 // $Id$ 
 
 /**
- * @file node.tpl.php
- *
+ * @file
  * Theme implementation to display a node.
  *
  * Available variables:
@@ -48,48 +47,43 @@
  * @see template_preprocess_node()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { 
-  print ' sticky'; } 
-?><?php if (!$status) { 
-  print ' node-unpublished'; } 
-?>">
- 
-<?php if ($page == 0): ?>
-  <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
-<?php endif; ?>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
-  <?php if ($submitted): ?>
-    <span class="submitted"><?php print $submitted; ?></span>
+  <?php print $user_picture; ?>
+
+  <?php print render($title_prefix); ?>
+  <?php if (!$page): ?>
+    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+  <?php endif; ?>
+  <?php print render($title_suffix); ?>
+
+  <?php if ($display_submitted): ?>
+    <span class="submitted">
+      <?php
+        print t('By !username on @date',
+          array(
+          '!username' => $name, 
+          '@date' => format_date($node->created, 'custom', 'j M Y')));
+      ?>
+      
+    </span>
   <?php endif; ?>
 
-  <div class="content clear-block">
-    <?php print $content ?>
+  <div class="content clearfix"<?php print $content_attributes; ?>>
+    <?php
+      // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+    ?>
   </div>
 
-  <div class="clear-block">
-    <div class="meta">
-    <?php if ($taxonomy): ?>
-      <div class="terms"><?php print $terms ?></div>
-    <?php endif;?>
-    </div>
-
-    <?php if ($links): ?>
-      <div class="links"><?php print $links; ?></div>
+  <div class="clearfix">
+    <?php if (!empty($content['links'])): ?>
+      <div class="links"><?php print render($content['links']); ?></div>
     <?php endif; ?>
+
+    <?php print render($content['comments']); ?>
   </div>
 
-
-<?php if ($page != 0): ?>
-  <?php if ($submitted): ?>
-    <div class="post-footer">
-    <?php print $picture ?>
-    <h3><?php print $title ?></h3>
-    <span class="submitted"><?php print $submitted; ?></span>
-      <?php $account = user_load(array('uid' => $node->uid)); if (!empty($account->signature)) { ?>
-        <p><?php print check_plain($account->signature); ?></p>
-      <?php } ?>
-    </div>
-  <?php endif; ?>
-<?php endif; ?>
-  
 </div>

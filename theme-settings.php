@@ -2,8 +2,7 @@
 // $Id$
 
 /**
-* @file theme-settings.php
-* 
+* @file
 * Implementation of THEMEHOOK_settings() function.
 *
 * @param $saved_settings
@@ -12,25 +11,21 @@
 *   array A form array.
 */
 
-function phptemplate_settings($saved_settings) {
-  /*
-   * The default values for the theme variables. Make sure $defaults exactly
-   * matches the $defaults in the template.php file.
-   */
-  $defaults = array(
-    'simpleclean_show_submenu' => 1,
-  );
-
-  // Merge the saved variables and their default values
-  $settings = array_merge($defaults, $saved_settings);
-
-  // Create the form widgets using Forms API
+function simpleclean_form_system_theme_settings_alter(&$form, $form_state) {
   $form['simpleclean_show_submenu'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show submenu (primary links subnavigation in right column)'),
-    '#default_value' => $settings['simpleclean_show_submenu'],
+    '#type'          => 'checkbox',
+    '#title'         => t('Show submenu'),
+    '#default_value' => theme_get_setting('simpleclean_show_submenu'),
+    '#description'   => t('Show primary links subnavigation in right column.'),
+    '#weight' => -3,
   );
 
-  // Return the additional form widgets
-  return $form;
+  $form['simpleclean_mission'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Mission statement'),
+    '#default_value' => theme_get_setting('simpleclean_mission'),
+    '#size' => 128,
+    '#description' => t('Specify the text for the mission statement visable on frontpage. Leave it empty if you dont want a mission statement or if you want to use blocks instead.'),
+    '#weight' => -2,
+  );
 }
