@@ -127,9 +127,11 @@ h3 {
 }
 
 #nav #main-menu-links li {
+  display: block;
+  float: left;
+  list-style-type: none;
   margin: 0 20px 0 0;
   padding: 0;
-  list-style-type: none;
 }
 
 #nav #main-menu-links li a {
