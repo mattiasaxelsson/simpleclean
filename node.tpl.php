@@ -1,6 +1,4 @@
 <?php
-// $Id$ 
-
 /**
  * @file
  * Theme implementation to display a node.
@@ -49,8 +47,6 @@
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
-
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
@@ -59,13 +55,7 @@
 
   <?php if ($display_submitted): ?>
     <span class="submitted">
-      <?php
-        print t('By !username on @date',
-          array(
-          '!username' => $name, 
-          '@date' => format_date($node->created, 'custom', 'j M Y')));
-      ?>
-      
+    <?php print $submitted; ?>
     </span>
   <?php endif; ?>
 
@@ -82,8 +72,16 @@
     <?php if (!empty($content['links'])): ?>
       <div class="links"><?php print render($content['links']); ?></div>
     <?php endif; ?>
+    
+    <?php if ($page != 0): ?>
+      <?php if ($submitted): ?>
+          <?php  print $simpleclean_postfooter; ?>
+      <?php endif; ?>
+    <?php endif; ?>
 
-    <?php print render($content['comments']); ?>
+    <?php if (!empty($content['comments'])): ?>
+      <?php print render($content['comments']); ?>
+    <?php endif; ?>
   </div>
 
 </div>

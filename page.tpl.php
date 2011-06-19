@@ -1,6 +1,4 @@
 <?php
-// $Id$ 
-
 /**
  * @file
  * Theme implementation to display a single Drupal page.
@@ -134,31 +132,20 @@
         <?php print $messages; ?>
       <?php endif; ?>
       <?php print render($page['help']); ?>
+      <?php if ($action_links): ?>
+        <ul class="action-links">
+          <?php print render($action_links); ?>
+        </ul>
+      <?php endif; ?>
+      
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
     </div>
+    
     <div id="sidebar">
-    <?php
-      $show_submenu = theme_get_setting('simpleclean_show_submenu');
-      if ($show_submenu) {
-        $tree = menu_tree_page_data('main-menu'); 
-          foreach ($tree as $key => $mi) {
-            if ($mi['link']['in_active_trail'] && $tree[$key]['below']) {    
-              $menu = menu_tree_output($tree[$key]['below']);
-              $menu = render($menu) . '</div>';
-              $link = $mi['link']['link_path'];
-              $title = $mi['link']['title'];
-              print "<div class=\"submenu\"><h2 class=\"title-subnav\"><a href=\"/$link\">$title</a></h2>";
-            }
-          }
-      print render($menu);
-      }
-    ?>
-
       <?php if ($page['sidebar_first']): ?>
         <?php print render($page['sidebar_first']); ?>
       <?php endif; ?>
-
     </div>
 
   </div>
@@ -172,7 +159,7 @@
   <?php endif; ?>     
   
     <div id="footer">
-    This site is powered by <a href="http://drupal.org/">Drupal</a>. Theme: <a href="http://drupal.org/projects/simpleclean">Simple Clean</a> by <a href="http://drupal.org/user/765764">acke</a> @ <a href="http://www.happiness.se/">happiness</a>.
+  <p>This site is powered by <a href="http://drupal.org/">Drupal</a>. Theme: <a href="http://drupal.org/projects/simpleclean">Simple Clean</a> by <a href="http://drupal.org/user/765764">acke</a> @ <a href="http://www.happiness.se/">happiness</a>.</p>
     <?php // Feel free to remove credits if you want your site even cleaner ;) /acke ?>    
     </div>
   </div>

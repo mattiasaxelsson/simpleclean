@@ -1,6 +1,4 @@
 <?php
-// $Id$
-
 /**
 * @file
 * Implementation of THEMEHOOK_settings() function.
@@ -12,14 +10,6 @@
 */
 
 function simpleclean_form_system_theme_settings_alter(&$form, $form_state) {
-  $form['simpleclean_show_submenu'] = array(
-    '#type'          => 'checkbox',
-    '#title'         => t('Show submenu'),
-    '#default_value' => theme_get_setting('simpleclean_show_submenu'),
-    '#description'   => t('Show primary links subnavigation in right column.'),
-    '#weight' => -3,
-  );
-
   $form['simpleclean_mission'] = array(
     '#type' => 'textfield',
     '#title' => t('Mission statement'),
